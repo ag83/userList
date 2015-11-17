@@ -2,16 +2,25 @@ doctype html
 html(lang="en")
     head
         meta(name='viewport', content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width')
+        meta(charset="utf-8")
         title Title
         link(href="css/libs.css", rel="stylesheet")
         link(href="css/style.css", rel="stylesheet")
     body
-        div.content Content
-        ul
-            li 11
-            li 22
-            li 33
-            li 44
+        nav.navbar.navbar-default
+            button.btn.btn-default#list-users Show users
+            button.btn.btn-dafault#update-user Add user
+        div.users-update Create or update user
+            form#create-user
+                input(type='text')#user-name
+                input(type='text')#user-email
+                input(type='text')#user-telephone
+                input(type='text')#user-street
+                input(type='text')#user-city
+                input(type='text')#user-state
+                input(type='text')#user-zip
+                input.btn.btn-default#submit-user(type='submit')
+        div.users-list
     script(src="scripts/libs.js")
     script(src='scripts/app.js')
 

@@ -14,7 +14,7 @@ var gulp = require('gulp'),
         'bower_components/bootstrap/dist/js/bootstrap.min.js'
         ],
     cssLibs = [
-        'bower_components/bootstrap/dist/css/bootstrap.min.css'
+        'bower_components/bootstrap/dist/css/bootstrap.css'
         ]
 
 gulp.task('js', function() {
