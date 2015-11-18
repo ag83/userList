@@ -7,9 +7,6 @@ html(lang="en")
         link(href="css/libs.css", rel="stylesheet")
         link(href="css/style.css", rel="stylesheet")
     body
-        nav.navbar.navbar-default
-            button.btn.btn-default#list-users Show users
-            button.btn.btn-dafault#update-user Add user
         div.users-update Create or update user
             form#create-user
                 input(type='text')#user-name
@@ -19,8 +16,10 @@ html(lang="en")
                 input(type='text')#user-city
                 input(type='text')#user-state
                 input(type='text')#user-zip
-                input.btn.btn-default#submit-user(type='submit')
+                input(type='hidden')#user-id
+                button.btn.btn-default#submit-user(type='submit') Add user
         div.users-list
+        button.btn.btn-default#delete-all Delete all
     script(src="scripts/libs.js")
     script(src='scripts/app.js')
 
