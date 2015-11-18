@@ -7,19 +7,48 @@ html(lang="en")
         link(href="css/libs.css", rel="stylesheet")
         link(href="css/style.css", rel="stylesheet")
     body
-        div.users-update Create or update user
-            form#create-user
-                input(type='text')#user-name
-                input(type='text')#user-email
-                input(type='text')#user-telephone
-                input(type='text')#user-street
-                input(type='text')#user-city
-                input(type='text')#user-state
-                input(type='text')#user-zip
-                input(type='hidden')#user-id
-                button.btn.btn-default#submit-user(type='submit') Add user
-        div.users-list
-        button.btn.btn-default#delete-all Delete all
+        div.container
+            header.row
+                div.col-xs-12.col-sm-12.col-md-12.col-lg-12.text-center
+                    h1 Users list
+            div.row.content
+                div.users-update.col-xs-12.col-sm-5.col-md-4.col-lg-4
+                    h3 Create or update user
+                    form#create-user
+                        div.form-group.text-left
+                            label(for='user-name') User name    
+                                span.required  required field
+                            input.form-control(type='text' placeholder="Name" required)#user-name
+                        div.form-group.text-left
+                            label(for='user-email') Email  
+                                span.required  required field
+                            input.form-control(type='email' placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")#user-email
+                        div.form-group.text-left
+                            label(for='user-telephone') Telephone
+                            input.form-control(type='tel' placeholder="Telephone")#user-telephone
+                        div.form-group.text-left
+                            label(for='user-street') Street
+                            input.form-control(type='text' placeholder="Street")#user-street
+                        div.form-group.text-left
+                            label(for='user-city') City
+                            input.form-control(type='text' placeholder="City")#user-city
+                        div.form-group.text-left
+                            label(for='user-state') State
+                            input.form-control(type='text' placeholder="State")#user-state
+                        div.form-group.text-left
+                            label(for='user-zip') Zip code
+                            input.form-control(type='text' placeholder="Zip code")#user-zip
+                        div.form-group.text-right
+                            input(type='hidden')#user-id
+                            button.btn.btn-primary#submit-user(type='submit') Add user
+                    div.text-center.delete-button
+                        button.btn.btn-danger#delete-all Delete all users
+
+                div.col-xs-12.col-sm-7.col-md-8.col-lg-8
+                    div.panel.panel-default.users-list
+                        div.panel-heading.text-center 
+                            h3 Users
+                        ul.list-group#users-list
     script(src="scripts/libs.js")
     script(src='scripts/app.js')
 
