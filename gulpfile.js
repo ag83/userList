@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    browserify = require('gulp-browserify'),
+    //browserify = require('gulp-browserify'),
     uglify = require('gulp-uglify'),
     connect = require('gulp-connect'),
     stylus = require('gulp-stylus'),
@@ -15,11 +15,19 @@ var gulp = require('gulp'),
         ],
     cssLibs = [
         'bower_components/bootstrap/dist/css/bootstrap.css'
-        ]
+        ],
+    //not used - concat in correct order by alphabeth file naming 
+    jsFiles = [
+        'assets/js/app.js',
+        'assets/js/init.js',
+        'assets/js/list.js',
+        'assets/js/crud.js',
+    ]
 
 gulp.task('js', function() {
   return gulp.src('assets/js/*.js')
-    .pipe(browserify({debug: true}))
+    //.pipe(browserify({debug: true}))
+    .pipe(concat('app.js'))
     .pipe(gulp.dest('public/scripts/')) 
     .pipe(connect.reload()); 
 });
@@ -85,13 +93,14 @@ gulp.task('build', function() {
 
 
     gulp.src('assets/js/*.js')
-        .pipe(browserify({debug: true}))
+        //.pipe(browserify({debug: true}))
+        .pipe(concat('app.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./build/js'));
+        .pipe(gulp.dest('./build/scripts'));
 
     gulp.src(jsLibs)
         .pipe(concat('libs.js'))
-        .pipe(gulp.dest('./build/js'))
+        .pipe(gulp.dest('./build/scripts'))
 
     gulp.src(cssLibs)
         .pipe(concat('libs.css'))
