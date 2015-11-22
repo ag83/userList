@@ -3,7 +3,7 @@ var addUser = require('./list');
 module.exports = function() {
 
     //set local storage or get users from it
-    if (!localStorage['userlist']) {
+    if (!localStorage.userlist) {
         localStorage.setItem('userlist', '[]');
     } else {
         usersArr = JSON.parse(localStorage.getItem('userlist'));

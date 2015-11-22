@@ -20,7 +20,7 @@ var createUser = function(evt) {
         userStreet = $('#user-street').val(),
         userCity = $('#user-city').val(),
         userState = $('#user-state').val(),
-        userZip = $('#user-zip').val()
+        userZip = $('#user-zip').val(),
         userId = $('#user-id').val() || ++idUser;
 
     var newUser = {userName: userName, 
@@ -53,14 +53,14 @@ var updateUser = function(evt) {
     localStorage.setItem('userlist', JSON.stringify(usersArr));
     $('#' + idUpd).parent('.list-group-item').remove();
 
-    $('#user-name').val(editedUser.userName),
-    $('#user-email').val(editedUser.userEmail),
-    $('#user-telephone').val(editedUser.userTelephone),
-    $('#user-street').val(editedUser.userStreet),
-    $('#user-city').val(editedUser.userCity),
-    $('#user-state').val(editedUser.userState),
-    $('#user-zip').val(editedUser.userZip)
-    $('#user-id').val(editedUser.userId)
+    $('#user-name').val(editedUser.userName);
+    $('#user-email').val(editedUser.userEmail);
+    $('#user-telephone').val(editedUser.userTelephone);
+    $('#user-street').val(editedUser.userStreet);
+    $('#user-city').val(editedUser.userCity);
+    $('#user-state').val(editedUser.userState);
+    $('#user-zip').val(editedUser.userZip);
+    $('#user-id').val(editedUser.userId);
 };
 
 exports.createUser = createUser;

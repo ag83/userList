@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     myth = require('gulp-myth'),
     concat  = require('gulp-concat'),
+    jshint = require('gulp-jshint'),
 
     jsLibs = [
         'bower_components/jquery/dist/jquery.min.js',
@@ -17,6 +18,11 @@ var gulp = require('gulp'),
         'bower_components/bootstrap/dist/css/bootstrap.css'
         ]
 
+gulp.task('lint', function() {
+    return gulp.src('assets/js/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
 
 gulp.task('js', function() {
   return gulp.src('assets/js/app.js')
@@ -57,12 +63,12 @@ gulp.task('libs.css', function () {
 });
  
 
-gulp.task('watch', ['libs.js', 'libs.css', 'css', 'js', 'jade'], function() {
+gulp.task('watch', ['libs.js', 'libs.css', 'css', 'lint', 'js', 'jade'], function() {
 
   gulp.watch('bower.json', ['libs.js', 'libs.css']);
   gulp.watch('assets/template/*.jade', ['jade']);
   gulp.watch('assets/css/*.styl', ['css']);
-  gulp.watch('assets/js/*.js', ['js']);
+  gulp.watch('assets/js/*.js', ['lint', 'js']);
 
 });
 

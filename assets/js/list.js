@@ -1,6 +1,6 @@
 module.exports = function(userObj) {
 
-        if ($('#id'+userObj.userId).length == 0) {
+        if ($('#id'+userObj.userId).length === 0) {
 
             var userAddress = '';
             if (userObj.userStreet) {
@@ -37,7 +37,7 @@ module.exports = function(userObj) {
                 userHTML += '<div> Telephone: '+ userObj.userTelephone +'</div>';
             }
             if (userAddress.length > 0) {
-              userHTML += '<div>Address: '+ userAddress +'</div>'
+              userHTML += '<div>Address: '+ userAddress +'</div>';
             }
             userHTML += '<button class="update-user btn btn-default btn-sm">Update user</button>  '+
                         '<button class="delete-user btn btn-danger btn-sm">Delete user</button></div></div></li>';
