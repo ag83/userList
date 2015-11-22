@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    //browserify = require('gulp-browserify'),
+    browserify = require('gulp-browserify'),
     uglify = require('gulp-uglify'),
     connect = require('gulp-connect'),
     stylus = require('gulp-stylus'),
@@ -15,19 +15,13 @@ var gulp = require('gulp'),
         ],
     cssLibs = [
         'bower_components/bootstrap/dist/css/bootstrap.css'
-        ],
-    //not used - concat in correct order by alphabeth file naming 
-    jsFiles = [
-        'assets/js/app.js',
-        'assets/js/init.js',
-        'assets/js/list.js',
-        'assets/js/crud.js',
-    ]
+        ]
+
 
 gulp.task('js', function() {
-  return gulp.src('assets/js/*.js')
-    //.pipe(browserify({debug: true}))
-    .pipe(concat('app.js'))
+  return gulp.src('assets/js/app.js')
+    .pipe(browserify())
+    .on('error', console.log)
     .pipe(gulp.dest('public/scripts/')) 
     .pipe(connect.reload()); 
 });
@@ -63,12 +57,13 @@ gulp.task('libs.css', function () {
 });
  
 
-gulp.task('watch', ['css', 'js', 'jade', 'libs.js', 'libs.css'], function() {
+gulp.task('watch', ['libs.js', 'libs.css', 'css', 'js', 'jade'], function() {
 
+  gulp.watch('bower.json', ['libs.js', 'libs.css']);
   gulp.watch('assets/template/*.jade', ['jade']);
   gulp.watch('assets/css/*.styl', ['css']);
   gulp.watch('assets/js/*.js', ['js']);
-  gulp.watch('bower.json', ['libs.js', 'libs.css']);
+
 });
 
 gulp.task('server', ['watch'], function() {
@@ -92,9 +87,9 @@ gulp.task('build', function() {
         .pipe(gulp.dest('./build/'))
 
 
-    gulp.src('assets/js/*.js')
-        //.pipe(browserify({debug: true}))
-        .pipe(concat('app.js'))
+    gulp.src('assets/js/app.js')
+        .pipe(browserify())
+        .on('error', console.log)
         .pipe(uglify())
         .pipe(gulp.dest('./build/scripts'));
 

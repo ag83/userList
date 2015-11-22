@@ -1,8 +1,12 @@
+var init = require('./init');
+var crud = require('./crud');
+
 $(document).ready(function(){
+    console.log('app');
 
     var idUser;
     var usersArr = [];
-    init.init();
+    init();
 
 
     //create
@@ -23,7 +27,9 @@ $(document).ready(function(){
     //delete all
     $('#delete-all').click(function() {
         $('.list-group-item').remove();
-        localStorage.removeItem('userlist');
+        localStorage.setItem('userlist', '[]');
+        //localStorage.removeItem('userlist');
+        usersArr = [];
     });
 
     //toggle user

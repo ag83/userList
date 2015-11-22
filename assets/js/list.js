@@ -1,7 +1,7 @@
-var list = {
-    addUser: function (userObj) {
+module.exports = function(userObj) {
+
         if ($('#id'+userObj.userId).length == 0) {
-            //console.log(useObj);
+
             var userAddress = '';
             if (userObj.userStreet) {
                 userAddress = userObj.userStreet;
@@ -46,5 +46,5 @@ var list = {
         } else {
             //console.log('present', userObj.userId)
         }
-    }
+
 };
