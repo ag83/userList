@@ -2,7 +2,7 @@ var init = require('./init');
 var crud = require('./crud');
 
 $(document).ready(function(){
-    console.log('app');
+
 
     var idUser;
     var usersArr = [];
@@ -10,17 +10,17 @@ $(document).ready(function(){
 
 
     //create
-    $('#create-user').submit(function(event) {
+    $('#create-user').submit(function (event) {
         crud.createUser(event);
     });
 
     //delete
-    $(document).on('click', '.delete-user', function(event) {
+    $(document).on('click', '.delete-user', function (event) {
         crud.deleteUser(event);
     });
 
     //update
-    $(document).on('click', '.update-user', function(event) {
+    $(document).on('click', '.update-user', function (event) {
         crud.updateUser(event);
     });
 
@@ -33,7 +33,7 @@ $(document).ready(function(){
     });
 
     //toggle user
-    $(document).on('click', '.user-in-list', function() {
+    $(document).on('click', '.user-in-list', function () {
         $(this).find('.user-details').toggle('slow');
     });
 

@@ -82,7 +82,7 @@ gulp.task('server', ['watch'], function() {
 
 gulp.task('build', function() {
     gulp.src('assets/css/*.styl')
-        .pipe(stylus()) 
+        .pipe(stylus())
         .pipe(myth()) 
         .pipe(csso()) 
         .pipe(gulp.dest('./build/css/')) 
